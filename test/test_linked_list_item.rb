@@ -11,7 +11,7 @@ class LinkedListItemTest < Test::Unit::TestCase
   def test_02_add_next_list_item
     lli1 = LinkedListItem.new("foo")
     lli2 = LinkedListItem.new("bar")
-    lli1.next_list_item = lli2
+    lli1.next_list_item = lli2         # this line is weird
     assert_equal(lli2, lli1.next_list_item)
   end
 
