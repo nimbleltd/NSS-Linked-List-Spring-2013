@@ -70,15 +70,15 @@ class LinkedListItemTest < Test::Unit::TestCase
 
   # ========= Bonus ========== #
 
-  # def test_16_initialize_takes_seed_argument
-  #   ll = LinkedList.new("foo")
-  #   assert_equal "| foo |", ll.to_s
-  # end
+  def test_16_initialize_takes_seed_argument
+    ll = LinkedList.new("foo")
+    assert_equal "| foo |", ll.to_s
+  end
 
-  # def test_17_initialize_takes_seed_arguments
-  #   ll = LinkedList.new("foo", "bar", "grille")
-  #   assert_equal '| foo, bar, grille |', ll.to_s
-  # end
+  def test_17_initialize_takes_seed_arguments
+    ll = LinkedList.new("foo", "bar", "grille")
+    assert_equal '| foo, bar, grille |', ll.to_s
+  end
 
   # def test_18_bracket_accessor
   #   ll = LinkedList.new

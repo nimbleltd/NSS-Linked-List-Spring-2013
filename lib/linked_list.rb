@@ -8,7 +8,7 @@ class LinkedList
 
   def add_item(payload)
     next_item = LinkedListItem.new(payload)
-    if first_item.nil?  
+    if first_item.nil?
       @first_item = next_item
     else
       final_item = first_item
@@ -20,17 +20,15 @@ class LinkedList
   end
 
   def get(n)
-    i = 0
-    buildCMD = first_item
-    while i < n  #or n.times
-      unless buildCMD.nil?
-        buildCMD = buildCMD.next_list_item
+    build_cmd = first_item
+    n.times do
+      unless build_cmd.nil?
+        build_cmd = build_cmd.next_list_item
       else
-        raise IndexError, "Index #{n} DNE."  
+        raise IndexError, "Index #{n} does not exist."
       end
-      i += 1
     end
-    buildCMD.payload
+    build_cmd.payload
   end
 
   def last
@@ -38,30 +36,26 @@ class LinkedList
     final_item = first_item
     while !final_item.last?
       final_item = final_item.next_list_item
-    end    
+    end
     final_item.payload
   end
 
   def size
     i = 0
-    if first_item.nil? # guard clause
-      return 0
-    end
-    # return 0 if first_item.nil? 
+    return 0 if first_item.nil? # guard clause
     final_item = first_item
     while !final_item.nil?
       final_item = final_item.next_list_item
       i += 1
     end
-    i 
+    i
   end
 
   def to_s
-    #"| |"
     return "| |" if first_item.nil?
     final_item = first_item
     result_items = "| #{final_item.payload} |"
-    while !final_item.last? # until item.last? 
+    while !final_item.last? # until item.last?
       result_items.chop!.chop!
       final_item = final_item.next_list_item
       result_items = "#{result_items}, #{final_item.payload} |" #result_items += item.payload + ", "
@@ -84,12 +78,12 @@ class LinkedList
     n.times
       final_item = final_item.next_list_item
     final_item = final_item.nil
-    i 
+    i
   end
 
 
 end
- # def get(n) 
+ # def get(n)
   #   if n == 0
   #     @first_item.payload
   #   elsif n == 1
@@ -104,13 +98,13 @@ end
   # if n == 0
   #   @first_item.payload
   # elsif n > 0
-  #   n = 5    
+  #   n = 5
   #   i= 1
   #   nli = "next_list_item."
   #   nliCount = "next_list_item."
   #   while i < n
   #     nliCount = nliCount + nli
-  #     puts nliCount 
+  #     puts nliCount
   #     i += 1
   #   end
   #   puts "@first_item.#{nliCount}payload"
