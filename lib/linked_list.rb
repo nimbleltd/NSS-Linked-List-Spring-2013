@@ -63,6 +63,73 @@ class LinkedList
     result_items
   end
 
+# ========= indexOf Exercise ========== #
+  def indexOf(payload_name)
+    return nil if first_item.nil?
+    final_item = first_item
+    result_items = final_item.payload
+    link_list_count = 0
+    if payload_name == final_item.payload and link_list_count == 0
+      return link_list_count
+    end
+    while payload_name != nil and payload_name != final_item.payload
+      unless final_item.next_list_item == nil
+        final_item = final_item.next_list_item
+        link_list_count += 1
+      else
+        return nil
+      end
+    end
+    # puts "\n at the end"
+    link_list_count
+  end
+
+# ========= Sorting Exercise ========== #
+
+  def sorted?
+    if first_item.nil?
+      return 1
+    end
+    if first_item == first_item.next_list_item
+      return 1
+    end
+    # puts "\n 100 first_item.payload = #{first_item.payload} \nfirst_item.next_list_item.payload = #{first_item.next_list_item.payload} "
+    if first_item.payload != first_item.next_list_item.payload
+      # puts "\n first_item.payload = #{first_item.payload} \nfirst_item.next_list_item.payload = #{first_item.next_list_item.payload} "
+      return 1
+    else
+      # puts "\n -1 yo"
+      return -1
+    end
+    # if first_item.payload != first_item.next_list_item.payload
+    #   if first_item.payload > first_item.next_list_item.payload
+    #     return true
+    #   else
+    #     return false
+    #   end
+    # end
+  end
+
+  def sort
+    #current_item = @first_item
+    if first_item.nil?
+      puts "\n in if"
+      return self
+    else
+      puts "\n in 2nd if #{@first_item}"
+      return @first_item.payload
+    end
+
+
+  end
+
+  # This is a helper I implemented
+  def swap_with_next i
+    #if first_item >= first_item.next_list_item
+
+  end
+
+
   # ========= Bonus ========== #
 
   def [](payload)
@@ -80,32 +147,4 @@ class LinkedList
     final_item = final_item.nil
     i
   end
-
-
 end
- # def get(n)
-  #   if n == 0
-  #     @first_item.payload
-  #   elsif n == 1
-  #     @first_item.next_list_item.payload
-  #   elsif n ==2
-  #     @first_item.next_list_item.next_list_item.payload
-  #   elsif n ==3
-  #     @first_item.next_list_item.next_list_item.next_list_item.payload
-  #   end
-  # end
-
-  # if n == 0
-  #   @first_item.payload
-  # elsif n > 0
-  #   n = 5
-  #   i= 1
-  #   nli = "next_list_item."
-  #   nliCount = "next_list_item."
-  #   while i < n
-  #     nliCount = nliCount + nli
-  #     puts nliCount
-  #     i += 1
-  #   end
-  #   puts "@first_item.#{nliCount}payload"
-  #   cmd = "@first_item.#{nliCount}payload"
